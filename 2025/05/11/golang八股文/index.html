@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="golang 基础Go 语言的基础组成包声明 引入包 函数变量 语句 &amp; 表达式注释 Go 语言变量作用域作用域为已声明标识符所表示的常量、类型、变量、函数或包在源代码中的作用范围。 Go 语言中变量可以在三个地方声明： 函数内定义的变量称为局部变量 函数外定义的变量称为全局变量 函数定义中的变量称为形式参数 Go 语言中如何访问私有成员？在 Go 语言里，标识符的首字母大小写决定了其可见">
+  <meta name="description" content="golang 基础Go 语言的基础组成包声明 引入包 函数变量 语句 &amp; 表达式注释">
 <meta property="og:type" content="article">
 <meta property="og:title" content="golang八股文">
 <meta property="og:url" content="http://example.com/2025/05/11/golang%E5%85%AB%E8%82%A1%E6%96%87/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="golang 基础Go 语言的基础组成包声明 引入包 函数变量 语句 &amp; 表达式注释 Go 语言变量作用域作用域为已声明标识符所表示的常量、类型、变量、函数或包在源代码中的作用范围。 Go 语言中变量可以在三个地方声明： 函数内定义的变量称为局部变量 函数外定义的变量称为全局变量 函数定义中的变量称为形式参数 Go 语言中如何访问私有成员？在 Go 语言里，标识符的首字母大小写决定了其可见">
+<meta property="og:site_name" content="八股文">
+<meta property="og:description" content="golang 基础Go 语言的基础组成包声明 引入包 函数变量 语句 &amp; 表达式注释">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-05-11T12:31:12.025Z">
-<meta property="article:modified_time" content="2025-05-11T12:48:33.491Z">
+<meta property="article:modified_time" content="2025-05-11T13:27:47.385Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>golang八股文 | Hexo</title>
+  <title>golang八股文 | 八股文</title>
   
 
 
@@ -96,7 +96,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">八股文</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -159,7 +159,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="八股文">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-05-11 20:31:12 / Modified: 20:48:33" itemprop="dateCreated datePublished" datetime="2025-05-11T20:31:12+08:00">2025-05-11</time>
+              <time title="Created: 2025-05-11 20:31:12 / Modified: 21:27:47" itemprop="dateCreated datePublished" datetime="2025-05-11T20:31:12+08:00">2025-05-11</time>
             </span>
 
           
@@ -192,6 +192,89 @@
 <p>引入包</p>
 <p>函数变量</p>
 <p>语句 &amp; 表达式注释</p>
+<span id="more"></span>
+
+<p>Go语言的数据类型分为基本类型和复合类型，每种类型都有其特定的用途和特性。以下是详细分类和解释：</p>
+<h4 id="一、基本类型（Primitive-Types）"><a href="#一、基本类型（Primitive-Types）" class="headerlink" title="一、基本类型（Primitive Types）"></a>一、基本类型（Primitive Types）</h4><ol>
+<li><strong>布尔型（bool）</strong><br>值域：true 或 false。<br>零值：false。<br>用途：逻辑判断，如条件语句、循环控制等。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var isDone bool = true</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>数值类型（Numeric Types）</strong></li>
+</ol>
+<p>  整数类型：<br>  有符号：int8（-128~127）、int16、int32（rune的底层类型）、int64。<br>  无符号：uint8（byte的别名）、uint16、uint32、uint64。<br>  平台相关：int 和 uint（32位系统为32位，64位系统为64位）。<br>  零值：0。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var a int = 42</span><br><span class="line">var b byte = &#x27;A&#x27; // 等价于 uint8</span><br><span class="line">var c rune = &#x27;中&#x27; // 等价于 int32</span><br></pre></td></tr></table></figure>
+
+<p>浮点数：<br>float32（单精度，约6位小数）、float64（双精度，约15位小数，推荐默认使用）。<br>零值：0.0。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var pi float64 = 3.1415926535</span><br></pre></td></tr></table></figure>
+
+<p>复数：<br>complex64（实部和虚部分别为float32）、complex128（实部和虚部分别为float64）。<br>使用 real() 和 imag() 获取实部和虚部。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var z complex128 = complex(2, 3) // 2 + 3i</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>字符串类型（string）</strong><br>特性：不可变的字节序列，底层为[]byte，默认UTF-8编码。<br>零值：空字符串 “”。<br>操作：支持切片、拼接（+）、len() 获取字节长度。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s := &quot;Hello, 世界&quot;</span><br><span class="line">fmt.Println(len(s)) // 输出13（UTF-8中汉字占3字节）</span><br></pre></td></tr></table></figure>
+
+<h4 id="二、复合类型（Composite-Types）"><a href="#二、复合类型（Composite-Types）" class="headerlink" title="二、复合类型（Composite Types）"></a><strong>二、复合类型（Composite Types）</strong></h4><ol>
+<li><strong>数组（array）</strong><br>定义：固定长度、相同类型元素的集合，如 [3]int。<br>零值：所有元素为对应类型的零值。<br>值类型：赋值或传参时深拷贝。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr := [3]int&#123;1, 2, 3&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>切片（slice）</strong><br>定义：动态数组，基于数组的引用，支持自动扩容。<br>组成：底层数组指针 + 长度（len） + 容量（cap）。<br>零值：nil（未初始化时）。<br>操作：使用 make 创建或从数组&#x2F;切片生成。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s := make([]int, 2, 5) // 长度2，容量5</span><br><span class="line">s = append(s, 3)       // 动态扩展</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>结构体（struct）</strong><br>定义：用户自定义的聚合类型，包含多个字段。<br>零值：各字段为对应类型的零值。<br>匿名结构体：无需提前定义类型。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type Person struct &#123;</span><br><span class="line">    Name string</span><br><span class="line">    Age  int</span><br><span class="line">&#125;</span><br><span class="line">p := Person&#123;Name: &quot;Alice&quot;, Age: 30&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>指针（pointer）</strong><br>定义：存储变量内存地址，类型为 <em>T。<br>操作：&amp; 取地址，</em> 解引用。<br>零值：nil。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x := 42</span><br><span class="line">ptr := &amp;x</span><br><span class="line">fmt.Println(*ptr) // 输出42</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li><strong>函数类型（function）</strong><br>特性：函数是一等公民，可作为参数或返回值。<br>定义：func Add(a, b int) int { return a + b }。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var f func(int, int) int = Add</span><br></pre></td></tr></table></figure>
+
+
+<ol start="6">
+<li><strong>接口（interface）</strong><br>定义：一组方法签名的集合，实现接口的类型可赋值给接口变量。<br>零值：nil。<br>空接口：interface{} 可存储任意类型（类似any）。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type Writer interface &#123;</span><br><span class="line">    Write([]byte) (int, error)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="7">
+<li><strong>映射（map）</strong><br>定义：无序键值对集合，键必须可比较（如基本类型、结构体不含切片等）。<br>零值：nil，需用 make 初始化。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m := make(map[string]int)</span><br><span class="line">m[&quot;age&quot;] = 30</span><br></pre></td></tr></table></figure>
+
+
+<ol start="8">
+<li><strong>通道（channel）</strong><br>用途：用于协程（goroutine）间通信。<br>类型：chan T（无缓冲）、chan T N（带缓冲大小为N）。<br>操作：&lt;- 发送或接收数据。<br>无缓冲通道（Unbuffered Channel）<br><strong>特点</strong><br>同步通信：发送和接收操作必须同时准备好，否则会阻塞。<br>容量为 0：创建时不指定缓冲区大小（如 make(chan int)）。<br>原子性：发送和接收操作在同一时刻完成，数据直接从发送者传递到接收者，无需中间存储。<br>执行流程<br>发送阻塞：如果没有接收者，发送操作会阻塞。<br>接收阻塞：如果没有发送者，接收操作会阻塞。<br>同步点：发送和接收必须同时准备好，才能完成数据传递。<br>有缓冲通道（Buffered Channel）<br>特点<br>异步通信：发送和接收操作不需要同时准备好，只要缓冲区未满或未空。<br>容量大于 0：创建时指定缓冲区大小（如 make(chan int, 2)）。<br>非阻塞条件：<br>发送：缓冲区未满时不阻塞。<br>接收：缓冲区非空时不阻塞。<br>执行流程<br>发送操作：当缓冲区未满时，发送不会阻塞；当缓冲区满时，发送会阻塞。<br>接收操作：当缓冲区非空时，接收不会阻塞；当缓冲区为空时，接收会阻塞。</li>
+</ol>
+<p>有缓存通道和无缓冲通道区别：<br>无缓冲通道：用于强制同步，确保操作按顺序执行，适合控制并发流程。<br>有缓冲通道：用于解耦生产者和消费者，提高并发性能，适合处理批量任务。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ch := make(chan int, 2)</span><br><span class="line">ch &lt;- 1</span><br><span class="line">val := &lt;-ch</span><br></pre></td></tr></table></figure>
+
+<p>三、其他重要类型</p>
+<ol>
+<li>错误类型（error）<br>本质：内置接口，定义 Error() string 方法。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type error interface &#123;</span><br><span class="line">    Error() string</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>类型别名与自定义类型<br>类型别名：type Alias &#x3D; Original（与原类型完全等价）。<br>自定义类型：type MyInt int（新类型，需显式转换）。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type Celsius float64 // 自定义温度类型</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>uintptr 和 unsafe.Pointer<br>用途：底层内存操作，与C交互时使用（需谨慎）。</li>
+</ol>
 <h3 id="Go-语言变量作用域"><a href="#Go-语言变量作用域" class="headerlink" title="Go 语言变量作用域"></a>Go 语言变量作用域</h3><p>作用域为已声明标识符所表示的常量、类型、变量、函数或包在源代码中的作用范围。</p>
 <p>Go 语言中变量可以在三个地方声明：</p>
 <p>函数内定义的变量称为局部变量</p>
@@ -280,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#golang-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">golang 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%84%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">Go 语言的基础组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">Go 语言变量作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">Go 语言中如何访问私有成员？</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#golang-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">golang 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E7%9A%84%E5%9F%BA%E7%A1%80%E7%BB%84%E6%88%90"><span class="nav-number">1.1.</span> <span class="nav-text">Go 语言的基础组成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%EF%BC%88Primitive-Types%EF%BC%89"><span class="nav-number">1.1.1.</span> <span class="nav-text">一、基本类型（Primitive Types）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%EF%BC%88Composite-Types%EF%BC%89"><span class="nav-number">1.1.2.</span> <span class="nav-text">二、复合类型（Composite Types）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.2.</span> <span class="nav-text">Go 语言变量作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98%EF%BC%9F"><span class="nav-number">1.3.</span> <span class="nav-text">Go 语言中如何访问私有成员？</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
